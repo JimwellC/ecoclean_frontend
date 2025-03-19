@@ -1,1 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+/* Define CSS Variables */
+:root {
+  /* Colors */
+  --primary-color: #228B22; /* Green */
+  --secondary-color: #444; /* Dark Grey */
+  --background-color: #FFFDF0; /* Light Cream */
+  --text-color: #333; /* Standard Text */
+  --light-text: #777; /* Light Grey */
+  --footer-brand: #E0DED8; /* Faded Grey */
+
+  /* Radius */
+  --button-radius: 50px;
+
+  /* Spacing */
+  --section-padding: 50px;
+}
+
+/* Global Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+}
+
+.bg-theme {
+  background-color: var(--background-color) !important;
+}
+
+
+/* Container - Mobile*/
+.container {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Hero Styling - Mobile*/
+.hero-section{
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+}
+
+.hero-section .container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+
+
+
+/* ✅ Desktop View */
+@media (min-width: 768px) {
+  .container {
+    max-width: 1200px;
+  }
+}
