@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    background-color: #FFFDF0;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.hero-section .text-container {
+    flex: 1;
+    padding: 50px;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hero-section .highlight {
+    color: #3aab7a; 
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: auto;
+}
+
+.hero-section .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.hero-section .image-container img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Mission & Vision */
+.mission-vision {
+    background-color: #5db996;
+    color: #E3F0AF;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.mission-vision p{
+    color: white;
+}
+
+/* Volunteer Card */
+.volunteer-card {
+    background-color: #118B50;
+    color: white;
+    border: 2px solid green;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.container.text-center.my-5 h2 {
+    font-size: 2.5rem; 
+    font-weight: bold;
+    color: #118B50; 
+    margin-bottom: 20px;
+}
+
+.volunteer-card img {
+    width: 500px; 
+    height: 200px; 
+    object-fit: cover;
+    border-radius: 15px; 
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: #5DB996; 
+    padding: 50px 20px;
+}
+
+.cta-section img {
+    max-width: 100%; 
+    border-radius: 10px; 
+}
+
+.cta-section h2 {
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+        height: auto;
+    }
+
+    .hero-section .text-container,
+    .hero-section .image-container {
+        flex: none;
+        width: 100%;
+    }
+
+    .cta-section .row {
+        text-align: center;
+    }
+
+    .cta-section img {
+        margin-bottom: 20px;
+    }
+}
