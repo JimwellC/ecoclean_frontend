@@ -1,1 +1,28 @@
-<p>activities works!</p>
+<section class="hero-section">
+  <div class="container hero-content">
+    <h1 class="fw-bold">Join the Movement for a<br>Cleaner and Healthier<br>Barangay!</h1>
+  </div>
+</section>
+
+
+<div class="events-container">
+  <h2 class="title">Upcoming <span class="highlight">Events</span></h2>
+
+  <div *ngFor="let event of events">
+    <h3 class="month-title">{{ event.month }}</h3>
+    <mat-divider></mat-divider>
+
+    <div *ngFor="let item of event.items" class="event-card">
+      <div class="date-box">
+        <span class="date">{{ item.date }}</span>
+      </div>
+      <mat-card class="event-details">
+        <h4 class="event-title">{{ item.title }}</h4>
+        <p class="event-description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <span class="event-time">{{ item.time }}</span>
+      </mat-card>
+    </div>
+  </div>
+</div>
