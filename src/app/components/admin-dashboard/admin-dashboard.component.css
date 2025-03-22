@@ -1,0 +1,93 @@
+/* Admin Panel Wrapper */
+.admin-dashboard {
+  background-color: #FFFDF0;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+/* Navigation Buttons */
+
+
+.admin-nav button {
+  margin-right: 1rem;
+  padding: 8px 16px;
+  background-color: #f2f2f2;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-nav button:hover {
+  background-color: #e6e6e6;
+}
+
+.admin-nav button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Fields */
+.event-form {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.event-form input,
+.event-form textarea {
+  display: block;
+  margin-bottom: 12px;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Material Date Picker */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+
+
+/* Event Display */
+.event-group {
+  background-color: #ffffff;
+  padding: 1rem 1.5rem;
+  text-align: left;
+}
+
+.event-group h4 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-left: 3%;
+}
+
+.event-group ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+
+/* Message Card */
+.message-card {
+  background-color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.message-card h5 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
