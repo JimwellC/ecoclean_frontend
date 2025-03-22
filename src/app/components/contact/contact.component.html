@@ -12,9 +12,10 @@
   </div>
 </section>
 
-<!-- Content Container - 60% Screen Width -->
+<!-- Content Container -->
 <div class="content-container">
   <div class="contact-page">
+
     <!-- Volunteer Section -->
     <div class="contact-section volunteer" id="volunteer">
       <div class="form-card">
@@ -22,30 +23,10 @@
         <form (ngSubmit)="onSubmitVolunteer()" #volunteerForm="ngForm">
           <label class="select-label">Interested In</label>
           <div class="select-group">
-            <div
-              class="select-option"
-              [class.active]="volunteerData.interest === 'clean-up'"
-              (click)="volunteerData.interest = 'clean-up'">
-              Clean-up
-            </div>
-            <div
-              class="select-option"
-              [class.active]="volunteerData.interest === 'planting'"
-              (click)="volunteerData.interest = 'planting'">
-              Planting
-            </div>
-            <div
-              class="select-option"
-              [class.active]="volunteerData.interest === 'community'"
-              (click)="volunteerData.interest = 'community'">
-              Community Help
-            </div>
-            <div
-              class="select-option"
-              [class.active]="volunteerData.interest === 'other'"
-              (click)="volunteerData.interest = 'other'">
-              Other
-            </div>
+            <div class="select-option" [class.active]="volunteerData.interest === 'clean-up'" (click)="volunteerData.interest = 'clean-up'">Clean-up</div>
+            <div class="select-option" [class.active]="volunteerData.interest === 'planting'" (click)="volunteerData.interest = 'planting'">Planting</div>
+            <div class="select-option" [class.active]="volunteerData.interest === 'community'" (click)="volunteerData.interest = 'community'">Community Help</div>
+            <div class="select-option" [class.active]="volunteerData.interest === 'other'" (click)="volunteerData.interest = 'other'">Other</div>
           </div>
 
           <div class="form-group">
@@ -68,25 +49,19 @@
       </div>
 
       <div class="contact-info-card">
-        <div class="info-item">
-          <i class="fa-solid fa-location-dot"></i>
-          <span>Barangay Santo Cristo, Angeles City, Pampanga</span>
-        </div>
-        <div class="info-item">
-          <i class="fa-solid fa-envelope"></i>
-          <a href="mailto:ecoclean.stocristo@gmail.com">ecoclean.stocristo&#64;gmail.com</a>
-        </div>
-        <div class="info-item">
-          <i class="fa-solid fa-phone"></i>
-          <span>+63 912 345 6789</span>
-        </div>
+        <div class="info-item"><i class="fa-solid fa-location-dot"></i><span>Barangay Santo Cristo, Angeles City, Pampanga</span></div>
+        <div class="info-item"><i class="fa-solid fa-envelope"></i><a href="mailto:ecoclean.stocristo@gmail.com">ecoclean.stocristo&#64;gmail.com</a></div>
+        <div class="info-item"><i class="fa-solid fa-phone"></i><span>+63 912 345 6789</span></div>
       </div>
     </div>
 
     <!-- Report Section -->
     <div class="contact-section report" id="report">
       <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15405.454358435067!2d120.6074489!3d15.13836405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f23b59377f95%3A0xc278944d4572a98f!2sSanto%20Cristo%2C%20Pampanga!5e0!3m2!1sen!2sph!4v1742623674122!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15405.454358435067!2d120.6074489!3d15.13836405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f23b59377f95%3A0xc278944d4572a98f!2sSanto%20Cristo%2C%20Pampanga!5e0!3m2!1sen!2sph!4v1742623674122!5m2!1sen!2sph"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
       </div>
 
       <div class="form-card">
@@ -94,24 +69,9 @@
         <form (ngSubmit)="onSubmitReport()" #reportForm="ngForm">
           <label class="select-label">Report Type</label>
           <div class="select-group">
-            <div
-              class="select-option"
-              [class.active]="reportData.type === 'pollution'"
-              (click)="reportData.type = 'pollution'">
-              Pollution
-            </div>
-            <div
-              class="select-option"
-              [class.active]="reportData.type === 'illegal'"
-              (click)="reportData.type = 'illegal'">
-              Illegal Waste
-            </div>
-            <div
-              class="select-option"
-              [class.active]="reportData.type === 'other'"
-              (click)="reportData.type = 'other'">
-              Other
-            </div>
+            <div class="select-option" [class.active]="reportData.type === 'pollution'" (click)="reportData.type = 'pollution'">Pollution</div>
+            <div class="select-option" [class.active]="reportData.type === 'illegal'" (click)="reportData.type = 'illegal'">Illegal Waste</div>
+            <div class="select-option" [class.active]="reportData.type === 'other'" (click)="reportData.type = 'other'">Other</div>
           </div>
 
           <div class="form-group">
@@ -138,5 +98,6 @@
         </form>
       </div>
     </div>
+
   </div>
 </div>

@@ -1,7 +1,7 @@
 /* Navbar - Mobile */
 /* Navbar base */
 .navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -24,7 +24,10 @@
   border-bottom: 2px solid #5DB996;
 }
 
-
+/* On scroll — dark text on white background */
+.navbar.scrolled {
+  background-color: #eaf5df !important;
+}
 
 .navbar.scrolled .nav-link,
 .navbar.scrolled .navbar-brand {
