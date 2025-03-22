@@ -1,0 +1,268 @@
+/* Ensure consistent section padding */
+.tips-header {
+    padding: 15vh 0; /* Adjusting padding to be responsive */
+  }
+  
+  /* Image Styling */
+  .tips-header img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Title Styling */
+  .tips-title {
+    font-size: 3vw; /* Responsive font size */
+    font-weight: 900;
+    color: var(--primary-color); 
+    line-height: 1.2;
+    max-width: 60vw;
+    text-align: right;
+  }
+  
+  /* Paragraph Styling */
+  .tips-text {
+    font-size: 1.2vw; /* Responsive text */
+    color: var(--secondary-color);
+    max-width: 60vw;
+    padding-top: 2vh;
+    text-align: right;
+  }
+  
+  /* Change background color when scrolling down */
+  .tips-section {
+    background-color: #E3F0AF;
+    padding: 6vh 0;
+  }
+  
+  /* Card Styling */
+  .card {
+    color: var(--background-color);
+    border: none;
+    border-radius: 2vh; /* Responsive border radius */
+    box-shadow: 0.5vh 0.5vh 1vh rgba(0, 0, 0, 0.1); /* Adjusted for responsiveness */
+  }
+  
+  .card img {
+    border-top-left-radius: 2vh;
+    border-top-right-radius: 2vh;
+    height: 20vh; /* Responsive height */
+    object-fit: cover;
+  }
+  
+  /* Title Styling */
+  .card-title {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.8vw; /* Responsive font size */
+    text-align: left;
+  }
+  
+  .card ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .card ul li {
+    display: flex;
+    align-items: center;
+  }
+  /* Text inside the card */
+  .card-text {
+    text-align: left;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1vw;
+  }
+  
+  /* Second Title */
+  .tips-second-title {
+    font-size: 2.5vw; /* Responsive */
+    font-weight: 700;
+    margin-bottom: 2vh;
+    display: inline-block;
+    color: var(--text-color);
+    position: relative;
+    padding-bottom: 0.5vh;
+    margin-bottom: 4vh;
+  }
+  
+  /* Second Title Underline */
+  .tips-second-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 9vw; /* Responsive */
+    height: 0.2vh; /* Thickness */
+    background-color: #5DB996;
+    transform: translateX(-50%);
+    box-shadow: 0.2vh 0.2vh 0.2vh rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Footer Section Styling */
+  .tips-footer {
+    padding: 10vh 0;
+  }
+  
+  .tips-footer img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Footer Title */
+  .tips-footer-title {
+    font-size: 2.5vw; /* Responsive */
+    font-weight: 900;
+    color: var(--text-color);
+    line-height: 1.2;
+    max-width: 50vw;
+    text-align: left;
+  }
+
+  .tips-footer-title span {
+    color: var(--primary-color);
+}
+  
+  /* Footer Text */
+  .tips-footer-text {
+    font-size: 1.2vw;
+    color: var(--text-color);
+    max-width: 70vw;
+    padding-top: 1.5vh;
+    text-align: left;
+  }
+  
+  /* Links */
+  .tips-link {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+    text-align: left;
+  }
+  
+  .tips-link-text {
+    padding-top: 3vh;
+    text-align: left;
+    color: var(--text-color);
+  }
+  
+  .tips-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* RESPONSIVE DESIGN */
+  
+  /* Tablets (iPads, 768px and up) */
+  @media (max-width: 1024px) {
+    .tips-title {
+      font-size: 5vw;
+    }
+  
+    .tips-text {
+      font-size: 1.5vw;
+    }
+  
+    .card-title {
+      font-size: 2vw;
+    }
+  
+    .card-text {
+      font-size: 1.5vw;
+    }
+  
+    .tips-footer-title {
+      font-size: 3vw;
+    }
+
+    .tips-footer-title span {
+        color: var(--primary-color);
+    }
+  
+    .tips-footer-text {
+      font-size: 1.5vw;
+    }
+  }
+  
+  /* Mobile Devices (Phones, below 768px) */
+  @media (max-width: 767px) {
+    /* Center title and text */
+    .tips-title,
+    .tips-text {
+      text-align: center !important;
+      margin: 0 auto;
+      max-width: 90%;
+    }
+  
+    /* Ensure full-width background on mobile */
+    .tips-section {
+      background-color: #E3F0AF !important; /* Ensure color applies */
+      min-height: 100vh; /* Ensures it covers the full viewport height */
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 6vh 0;
+      overflow: hidden; /* Prevents unwanted spacing */
+    }
+  
+    /* Adjust card layout */
+    .card {
+      width: 90%;
+      margin: auto;
+    }
+  
+    .card img {
+      height: 15vh;
+    }
+  
+    .card-title {
+      font-size: 3vw;
+      text-align: center;
+    }
+  
+    .card-text {
+      font-size: 2.5vw;
+      text-align: center;
+    }
+  
+    /* Remove bullet points inside cards */
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+  
+    .card ul li {
+      display: flex;
+      align-items: center;
+    }
+  
+    /* Footer adjustments */
+    .tips-footer .row {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .tips-footer-title {
+      font-size: 4vw;
+      text-align: center;
+      margin: 0 auto;
+    }
+    
+    .tips-footer-title span {
+        color: var(--primary-color);
+    }
+  
+    .tips-footer-text {
+      font-size: 2.5vw;
+      text-align: center;
+      margin: 0 auto;
+    }
+  
+    .tips-link-text {
+      text-align: center;
+    }
+  }
+  
