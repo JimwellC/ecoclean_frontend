@@ -1,5 +1,6 @@
 
   <!-- Hero Section -->
+
   <section class="hero-section">
     <div class="container hero-content">
       <h1 class="fw-bold">
@@ -8,6 +9,7 @@
       <div class="hero-buttons">
         <button class="btn btn-success hero-btn" (click)="activePanel = 'activities'" [class.active]="activePanel === 'activities'">Manage Activities</button>
         <button class="btn btn-success hero-btn" (click)="activePanel = 'messages'" [class.active]="activePanel === 'messages'">View Contact Messages</button>
+        <button class="btn  logout-btn" (click)="logout()">Logout</button>
       </div>
     </div>
   </section>
@@ -50,6 +52,7 @@
     </div>
   </div>
 
+
   <!-- 🌐 Only show messages when on 'messages' panel -->
 <div *ngIf="activePanel === 'messages'">
 
@@ -87,3 +90,4 @@
     </div>
   </div>
 </div>
+

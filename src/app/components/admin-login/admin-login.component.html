@@ -1,0 +1,27 @@
+<section class="login-page">
+  <div class="login-container">
+    <h2>Admin Login</h2>
+
+    <!-- Go back to main page link -->
+    <a routerLink="/" class="back-link">← Back to Home</a>
+
+    <form (ngSubmit)="login()" class="login-form">
+      <input
+        type="text"
+        placeholder="Username"
+        [(ngModel)]="credentials.username"
+        name="username"
+        required
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="credentials.password"
+        name="password"
+        required
+      />
+      <button type="submit">Login</button>
+      <div *ngIf="error" class="error-message">{{ error }}</div>
+    </form>
+  </div>
+</section>
