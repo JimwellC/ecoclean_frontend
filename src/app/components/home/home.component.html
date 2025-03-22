@@ -6,31 +6,57 @@
 </section>
 
 
+<section class="container calendar-section">
+  <h3 class="text-success mb-4">🗓 Monthly Garbage Pickup Schedule</h3>
+
+  <div class="calendar-controls">
+    <button (click)="prevMonth()">← Previous</button>
+    <span>{{ monthNames[currentMonth] }} {{ currentYear }}</span>
+    <button (click)="nextMonth()">Next →</button>
+  </div>
+
+  <div class="calendar-grid">
+    <div class="day-name" *ngFor="let d of dayNames">{{ d }}</div>
+    <div
+      *ngFor="let day of calendarDays"
+      class="calendar-cell"
+      [class.pickup-day]="isPickupDay(day)">
+      {{ day || '' }}
+    </div>
+  </div>
+  <div class="calendar-legend mt-4 text-center">
+    <span style="display: inline-block; width: 16px; height: 16px; background: #d1f0d1; border: 2px solid #228B22; margin-right: 5px;"></span>
+    Garbage Pickup Day
+  </div>
+
+</section>
+
+
 
 <section class="container content-section mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-5 text-content text-md-start">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-5 text-content order-1 order-md-1">
       <h4 class="text-success">GET STARTED</h4>
       <h2 class="fw-bold">What is the importance of Waste Management?</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+      <p>Proper waste management plays a vital role in maintaining a clean, healthy, and sustainable environment. It helps reduce pollution, prevent disease, conserve natural resources, and protect ecosystems. By responsibly managing our waste—through segregation, recycling, and disposal.</p>
       <a href="#" class="text-success">Read more →</a>
     </div>
-    <div class="col-md-5">
-      <img src="assets/waste-image.jpg" class="img-fluid rounded">
+    <div class="col-md-5 order-2 order-md-2">
+      <img src="assets/home/waste-segregate.jpg" class="img-fluid rounded" />
     </div>
   </div>
 </section>
 
 <section class="container content-section mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-5">
-      <img src="assets/cleanup-image.jpg" class="img-fluid rounded">
-    </div>
-    <div class="col-md-5 text-content text-md-start">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-5 text-content order-1 order-md-2">
       <h4 class="text-success">SCHEDULE OF ACTIVITIES</h4>
       <h2 class="fw-bold">Join the Movement</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+      <p>Be part of the change! EcoClean regularly organizes clean-up drives, waste segregation workshops, and environmental awareness campaigns across Barangay Sto. Cristo. Whether you're a student, a resident, or just someone who cares about the environment, there’s a place for you in our mission to build a cleaner, healthier community.</p>
       <a href="#" class="text-success">Read more →</a>
+    </div>
+    <div class="col-md-5 order-2 order-md-1">
+      <img src="assets/home/waste.jpg" class="img-fluid rounded" />
     </div>
   </div>
 </section>
