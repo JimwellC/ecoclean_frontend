@@ -9,6 +9,12 @@
   transition: background 0.3s ease-in-out;
 }
 
+.nav-link.active {
+  color: var(--primary-color); /* Dark Green */
+  font-weight: bold;
+  border-bottom: 2px solid #006400;
+}
+
 
 /* Footer Styling - Mobile */
 .footer {
