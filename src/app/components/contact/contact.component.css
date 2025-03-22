@@ -233,34 +233,40 @@ button:hover {
 
 /* Contact Info Card */
 .contact-info-card {
-  padding: 3rem;
+  background-color: #FFFDF0;
   border-radius: 12px;
-  background: none;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  flex: 1;
-  font-size: 1.05rem;
-}
-
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
   font-size: 1rem;
-  margin-bottom: 1.5rem;
-  color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.info-item i {
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 0.90rem;
+  line-height: 1.4;
+  color: #1a1a1a;
+  word-break: break-word;
+}
+
+.info-row i {
   font-size: 1.4rem;
   color: #5DB996;
-  min-width: 24px;
+  margin-top: 2px;
 }
 
-.info-item span,
-.info-item a {
-  font-size: 1.05rem;
-  color: #0f7a47;
+.info-row a {
+  color: #1a1a1a;
   text-decoration: none;
+  font-weight: 500;
+}
+
+.info-row a:hover {
+  color: #118B50;
 }
 
 /* Map Section */
