@@ -1,6 +1,6 @@
 /* Ensure consistent section padding */
 .tips-header {
-    padding: 15vh 0; /* Adjusting padding to be responsive */
+    padding: 20vh 0; /* Adjusting padding to be responsive */
   }
   
   /* Image Styling */
@@ -34,10 +34,20 @@
     padding: 6vh 0;
   }
   
+
+  .tips-cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 2vh;
+  }
+
   /* Card Styling */
   .card {
     color: var(--background-color);
     border: none;
+    width: 95%; /* Adjust width for responsiveness */
+  min-height: 35vh; /* Increase height */
+  padding: 2vh; /* Adds more spacing inside */
     border-radius: 2vh; /* Responsive border radius */
     box-shadow: 0.5vh 0.5vh 1vh rgba(0, 0, 0, 0.1); /* Adjusted for responsiveness */
   }
@@ -45,7 +55,7 @@
   .card img {
     border-top-left-radius: 2vh;
     border-top-right-radius: 2vh;
-    height: 20vh; /* Responsive height */
+    height: 30vh; /* Adjust this to make images appear longer */
     object-fit: cover;
   }
   
@@ -151,41 +161,73 @@
   }
   
   /* RESPONSIVE DESIGN */
-  
   /* Tablets (iPads, 768px and up) */
-  @media (max-width: 1024px) {
-    .tips-title {
+@media (min-width: 768px) and (max-width: 991px) {
+  .tips-title {
       font-size: 5vw;
-    }
-  
-    .tips-text {
-      font-size: 1.5vw;
-    }
-  
-    .card-title {
-      font-size: 2vw;
-    }
-  
-    .card-text {
-      font-size: 1.5vw;
-    }
-  
-    .tips-footer-title {
-      font-size: 3vw;
-    }
-
-    .tips-footer-title span {
-        color: var(--primary-color);
-    }
-  
-    .tips-footer-text {
-      font-size: 1.5vw;
-    }
   }
+
+  .tips-text {
+      font-size: 1.5vw;
+  }
+  
+  /* Fixing grid layout to properly display 3 columns and 2 rows */
+  .tips-cards-container {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      grid-template-rows: repeat(2, auto); /* 2 rows */
+      gap: 2vh;
+      justify-content: center;
+      align-items: stretch;
+  }
+
+  /* Remove col-md-4 affecting layout */
+  .card {
+      display: flex;
+      flex-direction: column;
+      height: 100%; /* Ensures uniform height */
+  }
+
+  .card img {
+      width: 100%; /* Ensures full width */
+      height: 20vh; /* Keeps images slightly rectangular */
+      object-fit: cover; /* Keeps image proportionate */
+      border-top-left-radius: 1vw; 
+      border-top-right-radius: 1vw;
+  }
+
+  .card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+
+  .card-text {
+      font-size: 1vw; /* Fixed incorrect font size unit */
+  }
+
+  .tips-footer-title {
+      font-size: 3vw;
+  }
+
+  .tips-footer-title span {
+      color: var(--primary-color);
+  }
+
+  .tips-footer-text {
+      font-size: 1.5vw;
+  }
+}
+
   
   /* Mobile Devices (Phones, below 768px) */
   @media (max-width: 767px) {
     /* Center title and text */
+
+    .tips-header {
+      max-width: 100%;
+    }
     .tips-title,
     .tips-text {
       text-align: center !important;
@@ -198,6 +240,7 @@
       background-color: #E3F0AF !important; /* Ensure color applies */
       min-height: 100vh; /* Ensures it covers the full viewport height */
       width: auto;
+      max-width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -206,14 +249,21 @@
       overflow: hidden; /* Prevents unwanted spacing */
     }
   
+    .tips-cards-container {
+      grid-template-columns: 1fr; /* 1 column */
+    }
+
     /* Adjust card layout */
     .card {
-      width: 90%;
+      width: 95%;
       margin: auto;
+      min-height: 35vh; /* Increase height */
+      padding: 2vh; /* Adds more spacing inside */
     }
   
     .card img {
-      height: 15vh;
+      height: 30vh; /* Adjust this to make images appear longer */
+      object-fit: cover;
     }
   
     .card-title {
