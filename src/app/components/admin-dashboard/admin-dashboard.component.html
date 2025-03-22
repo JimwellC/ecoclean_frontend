@@ -1,12 +1,17 @@
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <h1 class="fw-bold">
+        Admin Dashboard
+      </h1>
+      <div class="hero-buttons">
+        <button class="btn btn-success hero-btn" (click)="activePanel = 'activities'" [class.active]="activePanel === 'activities'">Manage Activities</button>
+        <button class="btn btn-success hero-btn" (click)="activePanel = 'messages'" [class.active]="activePanel === 'messages'">View Contact Messages</button>
+      </div>
+    </div>
+  </section>
 <section class="admin-dashboard container content-section">
-  <h2 class="text-success mb-4">Admin Panel</h2>
-
-  <!-- Navigation Buttons -->
-  <div class="admin-nav mb-4">
-    <button (click)="activePanel = 'activities'" [class.active]="activePanel === 'activities'">Manage Activities</button>
-    <button (click)="activePanel = 'messages'" [class.active]="activePanel === 'messages'">View Contact Messages</button>
-  </div>
-
   <!-- Panel: Manage Activities -->
   <div *ngIf="activePanel === 'activities'">
     <h3 class="mb-3">Add New Event</h3>
@@ -45,15 +50,40 @@
     </div>
   </div>
 
-  <!-- Panel: View Contact Messages -->
-  <div *ngIf="activePanel === 'messages'">
-    <h3 class="mb-3">Received Messages</h3>
-    <div *ngIf="messages.length === 0">No messages yet.</div>
-    <div *ngFor="let msg of messages" class="message-card">
-      <h5>{{ msg.name }} ({{ msg.email }})</h5>
-      <p><strong>Subject:</strong> {{ msg.subject }}</p>
-      <p>{{ msg.message }}</p>
-      <hr>
+  <!-- 🌐 Only show messages when on 'messages' panel -->
+<div *ngIf="activePanel === 'messages'">
+
+  <!-- Filter Dropdown -->
+  <div class="filter-group">
+    <label for="typeFilter">Filter by Type:</label>
+    <select id="typeFilter" [(ngModel)]="filterType">
+      <option value="">All</option>
+      <option value="volunteer">Volunteer</option>
+      <option value="report">Report</option>
+    </select>
+  </div>
+
+  <!-- Grid of Filtered Messages -->
+  <div class="message-grid">
+    <div *ngFor="let msg of messages | filterByType:filterType" class="message-card">
+      <h5>{{ msg.name }}</h5>
+      <p *ngIf="msg.email"><strong>Email:</strong> {{ msg.email }}</p>
+      <p><strong>Type:</strong> {{ msg.type | titlecase }}</p>
+      <p *ngIf="msg.message"><strong>Message:</strong> {{ msg.message }}</p>
+      <p *ngIf="msg.description"><strong>Description:</strong> {{ msg.description }}</p>
+      <p *ngIf="msg.interest"><strong>Interest:</strong> {{ msg.interest | titlecase }}</p>
+      <button class="view-btn" (click)="viewFullMessage(msg._id)">View Photo</button>
     </div>
   </div>
-</section>
+
+  <!-- Modal for Viewing Message -->
+  <div class="modal-backdrop" *ngIf="selectedMessage" (click)="closeModal()"></div>
+  <div class="modal" *ngIf="selectedMessage">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-icon" (click)="closeModal()" aria-label="Close">&times;</button>
+      <h4>{{ selectedMessage.name }} ({{ selectedMessage.type | titlecase }})</h4>
+      <p>{{ selectedMessage.message || selectedMessage.description }}</p>
+      <img *ngIf="selectedMessage.photo" [src]="'data:image/jpeg;base64,' + selectedMessage.photo" alt="Photo" />
+    </div>
+  </div>
+</div>
