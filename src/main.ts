@@ -2,7 +2,8 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
+import { provideHttpClient } from '@angular/common/http';
 
 bootstrapApplication(AppComponent, {
-  providers: [provideRouter(routes)], // ✅ Ensures routing is provided
+  providers: [provideRouter(routes), [provideHttpClient()]], // ✅ Ensures routing is provided
 }).catch(err => console.error(err));

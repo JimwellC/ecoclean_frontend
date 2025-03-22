@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, HostListener } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -12,19 +13,13 @@ import { RouterModule, Router, NavigationStart, NavigationEnd } from '@angular/r
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'EcoCLean';
-
+  title = 'EcoClean';
   isScrolled = false;
-
-  @HostListener('window:scroll', [])
-  onScroll(): void {
-    this.isScrolled = window.scrollY > 50;
-  }
-
   isLoading = true;
+  hideFooter = false;
 
   constructor(private router: Router) {
-    // Optional: listen to router events for dynamic loading state
+    // ✅ Detect page scroll
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         this.isLoading = true;
@@ -32,8 +27,20 @@ export class AppComponent {
       if (event instanceof NavigationEnd) {
         setTimeout(() => {
           this.isLoading = false;
-        }, 800); // Add a slight delay for smooth UX
+        }, 800);
       }
     });
+
+    // ✅ Hide footer on admin routes
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.hideFooter = event.urlAfterRedirects.startsWith('/admin');
+      });
+  }
+
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    this.isScrolled = window.scrollY > 50;
   }
 }
