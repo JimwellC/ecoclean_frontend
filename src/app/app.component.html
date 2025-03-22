@@ -1,3 +1,9 @@
+<div class="preloader" *ngIf="isLoading">
+  <div class="recycle-spinner">
+    ♻️
+  </div>
+</div>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg" [class.scrolled]="isScrolled">
   <div class="container">
@@ -30,8 +36,7 @@
       <!-- Left Section -->
       <div class="col-md-4 footer-left">
         <h5 class="footer-brand">EcoClean</h5>
-        <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit</p>
-        <p class="footer-copy">Copyright 2025 EcoClean, Inc. <a href="#">Terms & Privacy</a></p>
+        <p>Building a cleaner, healthier <br> community—one day at a time.</p>
       </div>
 
       <!-- Middle Section -->
@@ -52,6 +57,7 @@
           <li><a routerLink="/tips">Tips</a></li>
           <li><a routerLink="/activities">Activities</a></li>
         </ul>
+        <p class="footer-copy">Copyright 2025 EcoClean, Inc. <a href="#">Terms & Privacy</a></p>
       </div>
     </div>
   </div>
