@@ -241,6 +241,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
 }
 
 .info-row {
@@ -250,7 +251,7 @@ button:hover {
   font-size: 0.90rem;
   line-height: 1.4;
   color: #1a1a1a;
-  word-break: break-word;
+
 }
 
 .info-row i {
@@ -267,6 +268,13 @@ button:hover {
 
 .info-row a:hover {
   color: #118B50;
+}
+
+@media (min-width: 768px){
+  .info-row {
+    font-size: 1rem;
+    padding-left: 1.5em;
+  }
 }
 
 /* Map Section */
