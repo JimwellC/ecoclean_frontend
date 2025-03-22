@@ -21,6 +21,7 @@
         <li class="nav-item"><a class="nav-link" routerLink="/activities" routerLinkActive="active" >Activities</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/tips" routerLinkActive="active" >Tips</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active" >Contact</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/admin" routerLinkActive="active" >Admin</a></li>
       </ul>
     </div>
   </div>
@@ -30,7 +31,7 @@
 <router-outlet></router-outlet>
 
 <!-- Footer -->
-<footer class="footer mt-5 py-4 ">
+<footer *ngIf="!hideFooter" class="footer mt-5 py-4 ">
   <div class="container justify-content-center">
     <div class="row">
       <!-- Left Section -->

@@ -1,0 +1,59 @@
+<section class="admin-dashboard container content-section">
+  <h2 class="text-success mb-4">Admin Panel</h2>
+
+  <!-- Navigation Buttons -->
+  <div class="admin-nav mb-4">
+    <button (click)="activePanel = 'activities'" [class.active]="activePanel === 'activities'">Manage Activities</button>
+    <button (click)="activePanel = 'messages'" [class.active]="activePanel === 'messages'">View Contact Messages</button>
+  </div>
+
+  <!-- Panel: Manage Activities -->
+  <div *ngIf="activePanel === 'activities'">
+    <h3 class="mb-3">Add New Event</h3>
+    <form (ngSubmit)="addEvent()" class="event-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Choose Event Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          [(ngModel)]="newItem.dateObj"
+          name="dateObj"
+          required
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <input type="text" placeholder="Title" [(ngModel)]="newItem.title" name="title" required>
+      <textarea placeholder="Description" [(ngModel)]="newItem.desc" name="desc" required></textarea>
+      <input type="text" placeholder="Time" [(ngModel)]="newItem.time" name="time" required>
+      <button type="submit" class="btn btn-success">Add Event</button>
+    </form>
+
+    <div *ngFor="let event of events" class="event-group">
+      <div class="d-flex justify-content-between align-items-center">
+        <h4>{{ event.title }} <small class="text-muted">{{ event.month }}</small></h4>
+        <button (click)="deleteEventGroup(event._id)" class="btn btn-sm btn-danger">Delete Group</button>
+      </div>
+
+      <ul>
+        <li *ngFor="let item of event.items; let i = index">
+          <strong>{{ item.date }}:</strong> {{ item.title }} – {{ item.time }}<br />
+          <small>{{ item.desc }}</small>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Panel: View Contact Messages -->
+  <div *ngIf="activePanel === 'messages'">
+    <h3 class="mb-3">Received Messages</h3>
+    <div *ngIf="messages.length === 0">No messages yet.</div>
+    <div *ngFor="let msg of messages" class="message-card">
+      <h5>{{ msg.name }} ({{ msg.email }})</h5>
+      <p><strong>Subject:</strong> {{ msg.subject }}</p>
+      <p>{{ msg.message }}</p>
+      <hr>
+    </div>
+  </div>
+</section>
