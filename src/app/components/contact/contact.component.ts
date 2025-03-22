@@ -1,43 +1,42 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
+  imports: [CommonModule, FormsModule]
 })
 export class ContactComponent {
-  volunteerData = {
-    name: '',
-    interest: '',
-    message: '',
-    photo: null as File | null
-  };
+  volunteerData: any = {};
+  reportData: any = {};
+  volunteerPhoto!: File;
+  reportPhoto!: File;
 
-  reportData = {
-    type: '',
-    name: '',
-    email: '',
-    description: '',
-    image: null as File | null
-  };
+  constructor(private contactService: ContactService) {}
 
   onFileSelected(event: any) {
-    this.volunteerData.photo = event.target.files[0];
+    this.volunteerPhoto = event.target.files[0];
   }
 
   onReportFileSelected(event: any) {
-    this.reportData.image = event.target.files[0];
+    this.reportPhoto = event.target.files[0];
   }
 
   onSubmitVolunteer() {
-    alert('Volunteer form submitted (UI only)');
+    this.contactService.submitVolunteerForm(this.volunteerData, this.volunteerPhoto).subscribe({
+      next: () => alert('✅ Volunteer form submitted!'),
+      error: () => alert('❌ Error submitting volunteer form.')
+    });
   }
 
   onSubmitReport() {
-    alert('Report form submitted (UI only)');
+    this.contactService.submitReportForm(this.reportData, this.reportPhoto).subscribe({
+      next: () => alert('✅ Report submitted!'),
+      error: () => alert('❌ Error submitting report.')
+    });
   }
 }
