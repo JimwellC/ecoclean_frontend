@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FilterByTypePipe } from '../filter-by-type.pipe';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -39,7 +40,7 @@ export class AdminDashboardComponent implements OnInit {
   selectedMessage: any = null;
   filterType: string = ''; // '' = All, or 'volunteer' / 'report'
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchEvents();
@@ -103,6 +104,11 @@ export class AdminDashboardComponent implements OnInit {
       next: data => this.selectedMessage = data,
       error: err => console.error('Failed to load full message:', err)
     });
+  }
+
+  logout() {
+    localStorage.removeItem('isAdminLoggedIn');
+    this.router.navigate(['/admin-login']);
   }
 
   // Close modal popup

@@ -17,6 +17,7 @@ export class AppComponent {
   isScrolled = false;
   isLoading = true;
   hideFooter = false;
+  hideNavbar = false;
 
   constructor(private router: Router) {
     // ✅ Detect page scroll
@@ -31,12 +32,22 @@ export class AppComponent {
       }
     });
 
-    // ✅ Hide footer on admin routes
+    // Hide footer on admin routes
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.hideFooter = event.urlAfterRedirects.startsWith('/admin');
       });
+
+      // hide navbar on admin routes
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.hideNavbar = event.urlAfterRedirects.startsWith('/admin');
+    });
+
+
+
   }
 
   @HostListener('window:scroll', [])
