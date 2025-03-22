@@ -12,4 +12,7 @@ const eventSchema = new mongoose.Schema({
   item: itemSchema,
 });
 
+
 module.exports = mongoose.model('Event', eventSchema);
+
+

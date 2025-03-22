@@ -1,6 +1,7 @@
 /* Navbar - Mobile */
+/* Navbar base */
 .navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -9,11 +10,34 @@
   transition: background 0.3s ease-in-out;
 }
 
-.nav-link.active {
-  color: var(--primary-color); /* Dark Green */
-  font-weight: bold;
-  border-bottom: 2px solid #006400;
+/* Navbar brand and links - visible on dark background */
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #e3f0af !important;
+  transition: color 0.3s ease;
 }
+
+/* Active link */
+.nav-link.active {
+  color: #ffffff !important;
+  font-weight: bold;
+  border-bottom: 2px solid #5DB996;
+}
+
+/* On scroll — dark text on white background */
+.navbar.scrolled {
+  background-color: #eaf5df !important;
+}
+
+.navbar.scrolled .nav-link,
+.navbar.scrolled .navbar-brand {
+  color: #118B50 !important;
+}
+
+.navbar-toggler {
+  border-color: #e3f0af;
+}
+
 
 
 /* Footer Styling - Mobile */
