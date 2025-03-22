@@ -39,6 +39,21 @@
   filter: brightness(0) saturate(100%) invert(22%) sepia(74%) saturate(434%) hue-rotate(94deg) brightness(96%) contrast(90%);
 }
 
+.navbar-nav {
+  display: flex;
+  gap: 3rem;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 0;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+}
+
+
 @media (max-width: 991px) {
   /* Fix background visibility */
   .navbar .navbar-collapse,
