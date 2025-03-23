@@ -291,13 +291,10 @@
       overflow: hidden; /* Prevents unwanted spacing */
     }
 
-<<<<<<< HEAD
     .tips-second-title{
       font-size: 4vw;
     }
-  
-=======
->>>>>>> aa18406da28dedb002a143dd2149ac3d0fd0aba5
+
     .tips-cards-container {
       grid-template-columns: 1fr; /* 1 column */
     }
