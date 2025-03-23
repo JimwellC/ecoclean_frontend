@@ -39,7 +39,12 @@
           </div>
 
           <div class="form-group">
-            <input type="file" id="photo" (change)="onFileSelected($event)" />
+            <input type="email" id="volunteerEmail" name="email" [(ngModel)]="volunteerData.email" placeholder=" " required />
+            <label for="volunteerEmail">Your Email</label>
+          </div>
+
+          <div class="form-group">
+            <input type="file" (change)="onFileSelected($event)" #volunteerFileInput accept="image/*" />
             <label for="photo">Upload Photo</label>
           </div>
 
@@ -106,7 +111,7 @@
           </div>
 
           <div class="form-group">
-            <input type="file" id="reportImage" (change)="onReportFileSelected($event)" />
+            <input type="file" (change)="onReportFileSelected($event)" #reportFileInput accept="image/*" />
             <label for="reportImage">Upload Image</label>
           </div>
 

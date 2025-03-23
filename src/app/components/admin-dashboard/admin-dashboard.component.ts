@@ -55,13 +55,17 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-  // Fetch volunteer and report messages
+
   fetchMessages() {
     this.http.get<any[]>('http://localhost:3000/api/messages').subscribe({
-      next: data => (this.messages = data),
-      error: err => console.error('Failed to fetch messages:', err)
+      next: (data) => {
+        this.messages = data.filter(m => m.status !== 'rejected'); // ✅ hide rejected
+      },
+      error: () => alert('❌ Could not load messages')
     });
+
   }
+
 
   // Add new event
   addEvent() {
@@ -115,4 +119,34 @@ export class AdminDashboardComponent implements OnInit {
   closeModal() {
     this.selectedMessage = null;
   }
+
+  acceptVolunteer(id: string) {
+    this.http.patch(`http://localhost:3000/api/messages/${id}`, { status: 'accepted' }).subscribe({
+      next: () => {
+        const msg = this.messages.find(m => m._id === id);
+        if (msg) msg.status = 'accepted'; // reflect in UI immediately
+      },
+      error: () => alert('❌ Failed to accept volunteer')
+    });
+  }
+
+  updateStatus(id: string, status: 'accepted' | 'rejected') {
+    this.http.patch(`http://localhost:3000/api/messages/${id}`, { status }).subscribe({
+      next: () => {
+        const index = this.messages.findIndex(m => m._id === id);
+        if (index !== -1) {
+          if (status === 'accepted') {
+            this.messages[index].status = 'accepted';
+          } else if (status === 'rejected') {
+            this.messages.splice(index, 1); // 🗑️ remove from view
+          }
+        }
+      },
+      error: () => alert('Failed to update status.')
+    });
+  }
+
+
+
+
 }

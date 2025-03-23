@@ -40,7 +40,7 @@
             As one of the progressive barangays, Santo Cristo aims to enhance its environmental programs, ensuring that every resident plays a role in making the community cleaner and greener for future generations.
           </p>
         </div>
-  
+
         <!-- Right: Why We Chose Santo Cristo -->
         <div class="column right">
           <h2>Why We Chose Santo Cristo</h2>
@@ -54,7 +54,7 @@
       </div>
     </div>
   </section>
-  
+
 
 
 
@@ -77,56 +77,28 @@
     </section>
 
     <!-- Meet Our Volunteers -->
-    <section class="container text-center my-5">
-        <h2>Meet Our Volunteers</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="volunteer-card">
-                    <img src="assets/maics.jpg" class="img-fluid rounded volunteer-img mb-3">
-                    <h4>Micah Ayson</h4>
-                    <p>Passionate about sustainability.</p>
-                </div>
+    <section class="container my-5">
+      <h2 class="h2-volunteer">Meet Our Volunteers</h2>
+      <br><br>
+      <div class="row">
+        <ng-container *ngIf="volunteers.length > 0; else noVolunteers">
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-4" *ngFor="let v of volunteers">
+            <div class="volunteer-card">
+              <img [src]="'data:image/jpeg;base64,' + v.photo" alt="{{ v.name }}" class="volunteer-img" />
+              <h4 class="volunteer-name">{{ v.name }}</h4>
+              <p class="volunteer-email">{{ v.email }}</p>
+              <p class="volunteer-interest">{{ v.interest }}</p>
             </div>
-            <div class="col-md-4">
-                <div class="volunteer-card">
-                    <img src="assets/jimwell.jpg" class="img-fluid rounded volunteer-img mb-3">
-                    <h4>Jimwell Calma</h4>
-                    <p>Dedicated to environmental educations.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="volunteer-card">
-                    <img src="assets/raki.jpg" class="img-fluid rounded volunteer-img mb-3">
-                    <h4>Rakishi Dungca</h4>
-                    <p>Organizes community clean-ups.</p>
-                </div>
-            </div>
-        </div>
+          </div>
+        </ng-container>
 
-        <div class="row mt-4">
-            <div class="col-md-4">
-                <div class="volunteer-card">
-                    <img src="assets/kate.jpg" alt="Volunteer 4" class="img-fluid rounded volunteer-img">
-                    <h4>Katerisse Manicdao</h4>
-                    <p>Recycling Advocate</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="volunteer-card">
-                    <img src="assets/karlo.jpg" alt="Volunteer 5" class="img-fluid rounded volunteer-img">
-                    <h4>Karlo Mirasol</h4>
-                    <p>Sustainability Expert</p>
-                </div>
-            </div>  
-            <div class="col-md-4">
-                <div class="volunteer-card">
-                    <img src="assets/kumi.jpg" alt="Volunteer 6" class="img-fluid rounded volunteer-img">
-                    <h4>Kumi Briones</h4>
-                    <p>Eco-Friendly Consultant</p>
-                </div>
-            </div>
-        </div>
+        <ng-template #noVolunteers>
+          <p class="text-muted">No accepted volunteers yet.</p>
+        </ng-template>
+      </div>
     </section>
+
+
 
 
     <!-- Call to Action -->
@@ -140,7 +112,7 @@
 
 
                 <div class="col-md-6 text-center">
-                    <h2>Be <span style="color: var(--primary-color);">Part</span> of the <span style="color: var(--primary-color);">Change!</span></h2>
+                    <h2>Be <span style="color:#E3F0AF;">Part</span> of the <span style="color:#E3F0AF;">Change!</span></h2>
                     <p style="color: #FBF6E9;">Join us in making a difference by participating in community clean-ups and awareness campaigns.</p>
 
 

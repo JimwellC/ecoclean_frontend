@@ -7,15 +7,16 @@ import { HttpClient } from '@angular/common/http';
 export class ContactService {
   constructor(private http: HttpClient) {}
 
-  submitVolunteerForm(data: any, file: File) {
+  submitVolunteerForm(data: any, photo: File) {
     const formData = new FormData();
-    formData.append('interest', data.interest);
+    formData.append('photo', photo);
     formData.append('name', data.name);
+    formData.append('email', data.email);
     formData.append('message', data.message);
-    formData.append('photo', file);
-
+    formData.append('interest', data.interest);
     return this.http.post('http://localhost:3000/api/messages/volunteer', formData);
   }
+
 
   submitReportForm(data: any, file: File) {
     const formData = new FormData();

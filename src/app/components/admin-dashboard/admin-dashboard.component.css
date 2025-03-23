@@ -237,8 +237,8 @@ mat-form-field {
   background-color: white;
   padding: 2rem;
   border-radius: 14px;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 30%;
+  max-height: 70%;
   overflow-y: auto;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -287,8 +287,8 @@ mat-form-field {
 
 .logout-btn {
   background: none;
-  border: 1px solid red;
-  color: red;
+  border: 1px solid rgb(227, 181, 181);
+  color: rgb(227, 181, 181);
   padding: 0.5rem 1.5rem;
   font-size: 1rem;
   border-radius: 4px;
@@ -297,7 +297,7 @@ mat-form-field {
 }
 
 .logout-btn:hover {
-  background: #5DB996;
+  background: rgb(227, 181, 181);
   color: white;
 }
 
@@ -323,6 +323,76 @@ mat-form-field {
     margin-top: 2vh;
   }
 
+}
+/* Accept / Reject Buttons */
+.message-card .btn {
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.25s ease;
+  margin-top: 0.6rem;
+}
 
+.message-card .btn-accept {
+  background-color: #28a745; /* Bootstrap success green */
+  color: white;
+}
 
+.message-card .btn-accept:hover {
+  background-color: #218838;
+}
+
+.message-card .btn-reject {
+  background-color: #dc3545; /* Bootstrap danger red */
+  color: white;
+  margin-left: 0.5rem;
+}
+
+.message-card .btn-reject:hover {
+  background-color: #c82333;
+}
+
+/* Volunteer Status Badges */
+.badge {
+  display: inline-block;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.bg-success {
+  background-color: #28a745 !important;
+  color: white;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important;
+  color: white;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+  color: #212529;
+}
+
+.btn-reject {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-reject:hover {
+  background-color: #c62828;
 }

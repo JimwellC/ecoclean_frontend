@@ -35,6 +35,24 @@
   z-index: 1;
 }
 
+.hero-content h1 {
+  font-size: 2.8rem;
+  color: #E3F0AF;
+}
+
+.hero-content h4 {
+  color: #ffffff;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.hero-content p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #f0f0f0;
+  font-size: 1rem;
+}
+
 /* Ensure consistent section padding */
 .tips-header {
     padding: 20vh 0; /* Adjusting padding to be responsive */
