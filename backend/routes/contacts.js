@@ -3,6 +3,7 @@ const multer = require('multer');
 const Contact = require('../models/contact');
 const router = express.Router();
 
+// Setup Multer for handling file uploads in memory
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
@@ -11,24 +12,34 @@ const upload = multer({ storage });
  * ----------------------------- */
 router.post('/volunteer', upload.single('photo'), async (req, res) => {
   try {
-    const { interest, name, message } = req.body;
+    const { interest, name, email, message } = req.body;
     const photo = req.file?.buffer.toString('base64') || '';
+
+    if (!name || !email) {
+      return res.status(400).json({ message: 'Name and email are required.' });
+    }
 
     const contact = new Contact({
       type: 'volunteer',
       interest,
       name,
+      email,
       message,
-      photo
+      photo,
+      status: 'pending'
     });
 
     await contact.save();
     res.status(201).json({ message: 'Volunteer form submitted.' });
+
   } catch (err) {
-    console.error('❌ Error saving volunteer:', err);
-    res.status(500).json({ message: 'Error saving volunteer.', error: err });
+    console.error('❌ Error saving volunteer:', err); // This is key
+    res.status(500).json({ message: 'Error saving volunteer.', error: err.message });
   }
 });
+
+
+
 
 /** ------------------------------
  * POST: Report Form
@@ -44,7 +55,8 @@ router.post('/report', upload.single('photo'), async (req, res) => {
       name,
       email,
       description,
-      photo
+      photo,
+      status: 'pending'
     });
 
     await contact.save();
@@ -60,13 +72,37 @@ router.post('/report', upload.single('photo'), async (req, res) => {
  * ----------------------------- */
 router.get('/', async (req, res) => {
   try {
-    const contacts = await Contact.find({}, { photo: 0 }).sort({ createdAt: -1 });
+    const { type, status } = req.query;
+    const query = {};
+
+    if (type) query.type = type;
+    if (status) query.status = status; // make sure this line exists
+
+    const contacts = await Contact.find(query).sort({ createdAt: -1 });
     res.json(contacts);
   } catch (err) {
     console.error('❌ Error fetching messages:', err);
     res.status(500).json({ message: 'Failed to load messages', error: err });
   }
 });
+
+
+/** ------------------------------
+ * GET: Accepted Volunteers
+ * ----------------------------- */
+router.get('/volunteers', async (req, res) => {
+  try {
+    const volunteers = await Contact.find(
+      { type: 'volunteer', status: 'accepted' },
+      { name: 1, email: 1, photo: 1, message: 1 }
+    ).sort({ createdAt: -1 });
+
+    res.json(volunteers);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to load volunteers', error: err });
+  }
+});
+
 
 /** ------------------------------
  * GET: Single Message by ID (with photo)
@@ -81,5 +117,19 @@ router.get('/:id', async (req, res) => {
     res.status(500).json({ message: 'Failed to load message', error: err });
   }
 });
+
+/** ------------------------------
+ * PATCH: Update Message Status (Accept/Reject)
+ * ----------------------------- */
+router.patch('/:id', async (req, res) => {
+  try {
+    const { status } = req.body;
+    const updated = await Contact.findByIdAndUpdate(req.params.id, { status }, { new: true });
+    res.json(updated);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to update status', error: err });
+  }
+});
+
 
 module.exports = router;

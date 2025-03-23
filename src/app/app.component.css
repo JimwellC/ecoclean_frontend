@@ -34,7 +34,6 @@
   color: #118B50 !important;
 }
 
-/* When navbar is scrolled */
 .navbar.scrolled .navbar-nav img {
   filter: brightness(0) saturate(100%) invert(22%) sepia(74%) saturate(434%) hue-rotate(94deg) brightness(96%) contrast(90%);
 }

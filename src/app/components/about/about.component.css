@@ -203,30 +203,66 @@ body {
     color: white;
 }
 
-/* Volunteer Card */
+/* Exactly 3 cards per row */
+.fixed-col {
+  width: 33.3333%;
+  padding: 15px;
+  float: left;
+}
+
+/* Optional: Ensure cards are same height and well styled */
 .volunteer-card {
-    background-color: var(--primary-color);
-    color: white;
-    border: 2px solid green;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+  background-color: #f2f7dc;
+  border-radius: 14px;
+  padding: 25px 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.2s ease;
 }
 
-.container.text-center.my-5 h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #118B50;
-    margin-bottom: 20px;
+.h2-volunteer{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #118B50;
+
 }
 
-.volunteer-card img {
-    width: 500px;
-    height: 200px;
-    object-fit: contain;
-    border-radius: 15px;
+/* Image Styling */
+.volunteer-img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
 }
 
+.volunteer-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-top: 1.75em;
+  color: #118B50;
+}
+
+.volunteer-email {
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.volunteer-interest {
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.volunteer-card:hover {
+  transform: translateY(-5px);
+}
 /* CTA Section */
 .cta-section {
     background-color: #5DB996;

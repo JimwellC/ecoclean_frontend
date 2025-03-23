@@ -66,17 +66,29 @@
     </select>
   </div>
 
-  <!-- Grid of Filtered Messages -->
-  <div class="message-grid">
-    <div *ngFor="let msg of messages | filterByType:filterType" class="message-card">
-      <h5>{{ msg.name }}</h5>
-      <p *ngIf="msg.email"><strong>Email:</strong> {{ msg.email }}</p>
-      <p><strong>Type:</strong> {{ msg.type | titlecase }}</p>
-      <p *ngIf="msg.message"><strong>Message:</strong> {{ msg.message }}</p>
-      <p *ngIf="msg.description"><strong>Description:</strong> {{ msg.description }}</p>
-      <p *ngIf="msg.interest"><strong>Interest:</strong> {{ msg.interest | titlecase }}</p>
-      <button class="view-btn" (click)="viewFullMessage(msg._id)">View Photo</button>
-    </div>
+  <!-- Inside message-card -->
+<div *ngFor="let msg of messages | filterByType:filterType" class="message-card">
+  <h5>{{ msg.name }}</h5>
+  <p *ngIf="msg.email"><strong>Email:</strong> {{ msg.email }}</p>
+  <p><strong>Type:</strong> {{ msg.type | titlecase }}</p>
+  <p *ngIf="msg.message"><strong>Message:</strong> {{ msg.message }}</p>
+  <p *ngIf="msg.description"><strong>Description:</strong> {{ msg.description }}</p>
+  <p *ngIf="msg.interest"><strong>Interest:</strong> {{ msg.interest | titlecase }}</p>
+  <button class="view-btn" (click)="viewFullMessage(msg._id)">View Photo</button>
+
+  <div *ngIf="msg.type === 'volunteer'">
+    <!-- Accept Button: only shown if not accepted -->
+    <button *ngIf="msg.status !== 'accepted'" class="btn btn-accept" (click)="updateStatus(msg._id, 'accepted')">
+      Accept
+    </button>
+
+    <!-- Reject Button: only shown if not accepted -->
+    <button *ngIf="msg.status !== 'accepted'" class="btn btn-reject" (click)="updateStatus(msg._id, 'rejected')">
+      Reject
+    </button>
+
+    <!-- Status Badge: only shown if accepted -->
+    <span *ngIf="msg.status === 'accepted'" class="badge bg-success">Accepted</span>
   </div>
 
   <!-- Modal for Viewing Message -->
