@@ -1,1 +1,119 @@
-<p>contact works!</p>
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container hero-content">
+    <h1 class="fw-bold">
+      Clean Streets. Clear Future.<br />
+      Make a Difference Now!
+    </h1>
+    <div class="hero-buttons">
+      <button class="btn btn-success hero-btn" (click)="scrollToVolunteer()">Volunteer</button>
+      <button class="btn btn-outline-success hero-btn" (click)="scrollToReport()">Report</button>
+    </div>
+  </div>
+</section>
+
+<!-- Content Container -->
+<div class="content-container">
+  <div class="contact-page">
+    <!-- Volunteer Section -->
+    <div id="volunteer" #volunteerSection class="contact-section volunteer">
+      <div class="form-card">
+        <h3>Become a Volunteer</h3>
+        <form (ngSubmit)="onSubmitVolunteer()" #volunteerForm="ngForm">
+          <label class="select-label">Interested In</label>
+          <div class="select-group">
+            <div *ngIf="eventTitles.length === 0">No events available</div>
+            <div
+              class="select-option"
+              *ngFor="let title of eventTitles"
+              [class.active]="volunteerData.interest === title"
+              (click)="volunteerData.interest = title">
+              {{ title }}
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <input type="text" id="volunteerName" name="name" [(ngModel)]="volunteerData.name" placeholder=" " required />
+            <label for="volunteerName">Your Name</label>
+          </div>
+
+          <div class="form-group">
+            <input type="file" id="photo" (change)="onFileSelected($event)" />
+            <label for="photo">Upload Photo</label>
+          </div>
+
+          <div class="form-group">
+            <textarea id="volunteerMessage" name="message" [(ngModel)]="volunteerData.message" placeholder=" " required></textarea>
+            <label for="volunteerMessage">Message</label>
+          </div>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-info-card">
+        <div class="info-row">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Barangay Santo Cristo, Angeles City, Pampanga</span>
+        </div>
+
+        <div class="info-row">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:ecoclean.stocristo@gmail.com">ecoclean.stocristo&#64;gmail.com</a>
+        </div>
+
+        <div class="info-row">
+          <i class="fa-solid fa-phone"></i>
+          <span>+63 912 345 6789</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Report Section -->
+    <div id="report" #reportSection class="contact-section report">
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15405.454358435067!2d120.6074489!3d15.13836405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f23b59377f95%3A0xc278944d4572a98f!2sSanto%20Cristo%2C%20Pampanga!5e0!3m2!1sen!2sph!4v1742623674122!5m2!1sen!2sph"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+
+      <div class="form-card">
+        <h3>Report an Issue</h3>
+        <form (ngSubmit)="onSubmitReport()" #reportForm="ngForm">
+          <label class="select-label">Report Type</label>
+          <div class="select-group">
+            <div class="select-option" [class.active]="reportData.type === 'pollution'" (click)="reportData.type = 'pollution'">Pollution</div>
+            <div class="select-option" [class.active]="reportData.type === 'illegal'" (click)="reportData.type = 'illegal'">Illegal Waste</div>
+            <div class="select-option" [class.active]="reportData.type === 'other'" (click)="reportData.type = 'other'">Other</div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" id="reportName" name="name" [(ngModel)]="reportData.name" placeholder=" " required />
+            <label for="reportName">Your Name</label>
+          </div>
+
+          <div class="form-group">
+            <input type="email" id="reportEmail" name="email" [(ngModel)]="reportData.email" placeholder=" " required />
+            <label for="reportEmail">Your Email</label>
+          </div>
+
+          <div class="form-group">
+            <textarea id="reportDescription" name="description" [(ngModel)]="reportData.description" placeholder=" " required></textarea>
+            <label for="reportDescription">Description</label>
+          </div>
+
+          <div class="form-group">
+            <input type="file" id="reportImage" (change)="onReportFileSelected($event)" />
+            <label for="reportImage">Upload Image</label>
+          </div>
+
+          <button type="submit">Submit Report</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

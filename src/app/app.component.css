@@ -1,6 +1,7 @@
 /* Navbar - Mobile */
+/* Navbar base */
 .navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -9,11 +10,100 @@
   transition: background 0.3s ease-in-out;
 }
 
-.nav-link.active {
-  color: var(--primary-color); /* Dark Green */
-  font-weight: bold;
-  border-bottom: 2px solid #006400;
+/* Navbar brand and links - visible on dark background */
+.navbar .navbar-brand,
+.navbar .nav-link{
+  color: #e3f0af !important;
+  transition: color 0.3s ease;
 }
+
+/* Active link */
+.nav-link.active {
+  color: #ffffff !important;
+  font-weight: bold;
+  border-bottom: 2px solid #5DB996;
+}
+
+/* On scroll — dark text on white background */
+.navbar.scrolled {
+  background-color: #eaf5df !important;
+}
+
+.navbar.scrolled .nav-link,
+.navbar.scrolled .navbar-brand{
+  color: #118B50 !important;
+}
+
+/* When navbar is scrolled */
+.navbar.scrolled .navbar-nav img {
+  filter: brightness(0) saturate(100%) invert(22%) sepia(74%) saturate(434%) hue-rotate(94deg) brightness(96%) contrast(90%);
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 3rem;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 0;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+}
+
+
+@media (max-width: 991px) {
+  /* Fix background visibility */
+  .navbar .navbar-collapse,
+  .navbar .navbar-collapse.collapsing,
+  .navbar .navbar-collapse.show {
+    background-color: #118B50 !important;
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Make nav links readable */
+  .navbar .navbar-nav .nav-link {
+    color: #d0efe0 !important;
+    font-weight: 600;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Fix active nav link on mobile */
+  .navbar .nav-link.active {
+    color: #0c7d4a !important;
+    border-bottom: 2px solid #5DB996;
+  }
+
+  /* Fix navbar brand logo color */
+  .navbar .navbar-brand {
+    color: #118B50 !important;
+  }
+
+  .navbar-toggler {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent;
+  }
+
+  /* Default - white icon */
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+
+  /* Dark icon on scroll */
+  .navbar.scrolled .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23118B50' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+
+
+}
+
+
 
 
 /* Footer Styling - Mobile */
@@ -103,5 +193,6 @@
     padding: 0 20px;
   }
 }
+
 
 

@@ -15,8 +15,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 253, 240, 0.3);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
+}
+
+.fw-bold {
+  color: #d1f0d1;
 }
 
 .hero-section::after {
@@ -46,6 +50,8 @@
 .text-content {
   width: 100%;
 }
+
+
 
 /* Image Styling */
 .img-fluid {
@@ -140,6 +146,8 @@
   font-weight: bold;
   border: 0.2rem solid var(--primary-color);
 }
+
+
 
 /* Desktop View */
 @media (min-width: 768px) {

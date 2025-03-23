@@ -2,7 +2,7 @@
 :root {
   /* Colors */
   --primary-color: #228B22; /* Green */
-  --secondary-color: #444; /* Dark Grey */
+  --secondary-color: #5db996; /* Light Green */
   --background-color: #FFFDF0; /* Light Cream */
   --text-color: #333; /* Standard Text */
   --light-text: #777; /* Light Grey */
@@ -63,6 +63,9 @@ body, html {
     max-width: 1200px;
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
