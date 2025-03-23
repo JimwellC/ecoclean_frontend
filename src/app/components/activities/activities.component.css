@@ -45,7 +45,7 @@
   font-family: Arial, sans-serif;
   background-color: var(--background-color);
   border-radius: 1vh;
-  box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1); */
 }
 
 .title {
