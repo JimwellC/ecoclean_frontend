@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,7 @@ export class ContactService {
     formData.append('email', data.email);
     formData.append('message', data.message);
     formData.append('interest', data.interest);
-    return this.http.post('http://localhost:3000/api/messages/volunteer', formData);
+    return this.http.post(`${environment.apiUrl}/messages/volunteer`, formData);
   }
 
 
@@ -26,7 +28,7 @@ export class ContactService {
     formData.append('description', data.description);
     formData.append('photo', file);
 
-    return this.http.post('http://localhost:3000/api/messages/report', formData);
+    return this.http.post(`${environment.apiUrl}/messages/report`, formData);
   }
 
 }
