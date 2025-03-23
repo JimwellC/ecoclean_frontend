@@ -22,7 +22,7 @@
   /* Paragraph Styling */
   .tips-text {
     font-size: 1.2vw; /* Responsive text */
-    color: var(--secondary-color);
+    color: var(--text-color);
     max-width: 60vw;
     padding-top: 2vh;
     text-align: right;
@@ -70,11 +70,13 @@
   .card ul {
     list-style: none;
     padding-left: 0;
+    padding-top: 7%;
   }
   
   .card ul li {
     display: flex;
     align-items: center;
+    padding-bottom: 5%;
   }
   /* Text inside the card */
   .card-text {
@@ -86,14 +88,14 @@
   
   /* Second Title */
   .tips-second-title {
-    font-size: 2.5vw; /* Responsive */
+    font-size: 2vw; /* Responsive */
     font-weight: 700;
     margin-bottom: 2vh;
     display: inline-block;
     color: var(--text-color);
     position: relative;
     padding-bottom: 0.5vh;
-    margin-bottom: 4vh;
+    margin-bottom: 4vw;
   }
   
   /* Second Title Underline */
@@ -169,6 +171,7 @@
 
   .tips-text {
       font-size: 1.5vw;
+      color: var(--text-color)
   }
   
   /* Fixing grid layout to properly display 3 columns and 2 rows */
@@ -228,11 +231,18 @@
     .tips-header {
       max-width: 100%;
     }
-    .tips-title,
+    .tips-title{
+      text-align: center !important;
+      margin: 0 auto;
+      color: var(--primary-color);
+      font-size: 4vw;
+    }
     .tips-text {
       text-align: center !important;
       margin: 0 auto;
       max-width: 90%;
+      font-size: 2.4vw;
+      color: var(--text-color)
     }
   
     /* Ensure full-width background on mobile */
@@ -247,6 +257,10 @@
       align-items: center;
       padding: 6vh 0;
       overflow: hidden; /* Prevents unwanted spacing */
+    }
+
+    .tips-second-title{
+      font-size: 4vw;
     }
   
     .tips-cards-container {
@@ -267,7 +281,7 @@
     }
   
     .card-title {
-      font-size: 3vw;
+      font-size: 4vw;
       text-align: center;
     }
   
@@ -285,6 +299,7 @@
     .card ul li {
       display: flex;
       align-items: center;
+      text-align: left;
     }
   
     /* Footer adjustments */
