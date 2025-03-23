@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ContactService } from '../../services/contact.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -27,7 +28,7 @@ export class ContactComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:3000/api/events').subscribe(events => {
+    this.http.get<any[]>(`${environment.apiUrl}/events`).subscribe(events => {
       this.eventTitles = events.map(event => event.item?.title).filter(Boolean);
     });
   }

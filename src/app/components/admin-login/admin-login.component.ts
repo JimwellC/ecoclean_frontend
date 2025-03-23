@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-admin-login',
@@ -19,7 +20,7 @@ loginError: any;
   constructor(private http: HttpClient, private router: Router) {}
 
   login() {
-    this.http.post('http://localhost:3000/api/admin/login', this.credentials).subscribe({
+    this.http.post(`${environment.apiUrl}/admin/login`, this.credentials).subscribe({
       next: () => this.router.navigate(['/admin']),
       error: () => this.error = 'Invalid username or password'
     });

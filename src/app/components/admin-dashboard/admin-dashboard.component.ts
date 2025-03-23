@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FilterByTypePipe } from '../filter-by-type.pipe';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -49,7 +50,7 @@ export class AdminDashboardComponent implements OnInit {
 
   // Fetch events
   fetchEvents() {
-    this.http.get<any[]>('http://localhost:3000/api/events').subscribe({
+    this.http.get<any[]>(`${environment.apiUrl}/events`).subscribe({
       next: data => (this.events = data),
       error: err => console.error('Failed to fetch events:', err)
     });
@@ -57,7 +58,7 @@ export class AdminDashboardComponent implements OnInit {
 
 
   fetchMessages() {
-    this.http.get<any[]>('http://localhost:3000/api/messages').subscribe({
+    this.http.get<any[]>(`${environment.apiUrl}/messages`).subscribe({
       next: (data) => {
         this.messages = data.filter(m => m.status !== 'rejected'); // ✅ hide rejected
       },
@@ -83,7 +84,7 @@ export class AdminDashboardComponent implements OnInit {
       }
     };
 
-    this.http.post('http://localhost:3000/api/events', payload).subscribe({
+    this.http.post(`${environment.apiUrl}/events`, payload).subscribe({
       next: () => {
         this.fetchEvents();
         this.newItem = { date: 0, title: '', desc: '', time: '', dateObj: null };
@@ -95,7 +96,7 @@ export class AdminDashboardComponent implements OnInit {
   // Delete entire event group
   deleteEventGroup(eventId: string) {
     if (confirm('Are you sure you want to delete this entire event group?')) {
-      this.http.delete(`http://localhost:3000/api/events/${eventId}`).subscribe({
+      this.http.delete(`${environment.apiUrl}/events/${eventId}`).subscribe({
         next: () => this.fetchEvents(),
         error: err => console.error('Failed to delete event group:', err)
       });
@@ -104,7 +105,7 @@ export class AdminDashboardComponent implements OnInit {
 
   // View full message (with photo)
   viewFullMessage(id: string) {
-    this.http.get<any>(`http://localhost:3000/api/messages/${id}`).subscribe({
+    this.http.get<any>(`${environment.apiUrl}/messages/${id}`).subscribe({
       next: data => this.selectedMessage = data,
       error: err => console.error('Failed to load full message:', err)
     });
@@ -121,7 +122,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   acceptVolunteer(id: string) {
-    this.http.patch(`http://localhost:3000/api/messages/${id}`, { status: 'accepted' }).subscribe({
+    this.http.patch(`${environment.apiUrl}/messages/${id}`, { status: 'accepted' }).subscribe({
       next: () => {
         const msg = this.messages.find(m => m._id === id);
         if (msg) msg.status = 'accepted'; // reflect in UI immediately
@@ -131,7 +132,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   updateStatus(id: string, status: 'accepted' | 'rejected') {
-    this.http.patch(`http://localhost:3000/api/messages/${id}`, { status }).subscribe({
+    this.http.patch(`${environment.apiUrl}/messages/${id}`, { status }).subscribe({
       next: () => {
         const index = this.messages.findIndex(m => m._id === id);
         if (index !== -1) {

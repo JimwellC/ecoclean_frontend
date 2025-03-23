@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MatCard } from '@angular/material/card';
 import { MatDivider } from '@angular/material/divider';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-activities',
@@ -21,7 +22,7 @@ export class ActivitiesComponent implements OnInit {
   }
 
   fetchEvents() {
-    this.http.get<any[]>('http://localhost:3000/api/events').subscribe((data) => {
+    this.http.get<any[]>(`${environment.apiUrl}/events`).subscribe((data) =>{
       const grouped: any = {};
 
       // Group events by month
