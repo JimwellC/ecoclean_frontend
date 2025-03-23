@@ -1,24 +1,56 @@
+/* Hero Section - Mobile */
+.hero-section {
+  background: url('assets/hero-tips.jpg') no-repeat center center/cover;
+  height: 100vh;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.fw-bold {
+  color: #d1f0d1;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: -0.1vh;
+  left: 0;
+  width: 100%;
+  height: 35vh;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 253, 240, 1) 100%);
+  z-index: 1;
+}
+
 /* Ensure consistent section padding */
 .tips-header {
     padding: 20vh 0; /* Adjusting padding to be responsive */
   }
-  
-  /* Image Styling */
-  .tips-header img {
-    max-width: 100%;
-    height: auto;
-  }
-  
+
+
   /* Title Styling */
   .tips-title {
     font-size: 3vw; /* Responsive font size */
     font-weight: 900;
-    color: var(--primary-color); 
+    color: var(--primary-color);
     line-height: 1.2;
     max-width: 60vw;
     text-align: right;
   }
-  
+
   /* Paragraph Styling */
   .tips-text {
     font-size: 1.2vw; /* Responsive text */
@@ -27,13 +59,13 @@
     padding-top: 2vh;
     text-align: right;
   }
-  
+
   /* Change background color when scrolling down */
   .tips-section {
     background-color: #E3F0AF;
     padding: 6vh 0;
   }
-  
+
 
   .tips-cards-container {
     display: grid;
@@ -51,14 +83,14 @@
     border-radius: 2vh; /* Responsive border radius */
     box-shadow: 0.5vh 0.5vh 1vh rgba(0, 0, 0, 0.1); /* Adjusted for responsiveness */
   }
-  
+
   .card img {
     border-top-left-radius: 2vh;
     border-top-right-radius: 2vh;
     height: 30vh; /* Adjust this to make images appear longer */
     object-fit: cover;
   }
-  
+
   /* Title Styling */
   .card-title {
     color: var(--primary-color);
@@ -66,13 +98,13 @@
     font-size: 1.8vw; /* Responsive font size */
     text-align: left;
   }
-  
+
   .card ul {
     list-style: none;
     padding-left: 0;
     padding-top: 7%;
   }
-  
+
   .card ul li {
     display: flex;
     align-items: center;
@@ -85,7 +117,7 @@
     font-weight: 600;
     font-size: 1vw;
   }
-  
+
   /* Second Title */
   .tips-second-title {
     font-size: 2vw; /* Responsive */
@@ -97,7 +129,7 @@
     padding-bottom: 0.5vh;
     margin-bottom: 4vw;
   }
-  
+
   /* Second Title Underline */
   .tips-second-title::after {
     content: "";
@@ -110,17 +142,17 @@
     transform: translateX(-50%);
     box-shadow: 0.2vh 0.2vh 0.2vh rgba(0, 0, 0, 0.2);
   }
-  
+
   /* Footer Section Styling */
   .tips-footer {
     padding: 10vh 0;
   }
-  
+
   .tips-footer img {
     max-width: 100%;
     height: auto;
   }
-  
+
   /* Footer Title */
   .tips-footer-title {
     font-size: 2.5vw; /* Responsive */
@@ -134,7 +166,7 @@
   .tips-footer-title span {
     color: var(--primary-color);
 }
-  
+
   /* Footer Text */
   .tips-footer-text {
     font-size: 1.2vw;
@@ -143,7 +175,7 @@
     padding-top: 1.5vh;
     text-align: left;
   }
-  
+
   /* Links */
   .tips-link {
     color: var(--primary-color);
@@ -151,17 +183,17 @@
     text-decoration: none;
     text-align: left;
   }
-  
+
   .tips-link-text {
     padding-top: 3vh;
     text-align: left;
     color: var(--text-color);
   }
-  
+
   .tips-link:hover {
     text-decoration: underline;
   }
-  
+
   /* RESPONSIVE DESIGN */
   /* Tablets (iPads, 768px and up) */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -173,7 +205,7 @@
       font-size: 1.5vw;
       color: var(--text-color)
   }
-  
+
   /* Fixing grid layout to properly display 3 columns and 2 rows */
   .tips-cards-container {
       display: grid !important;
@@ -195,7 +227,7 @@
       width: 100%; /* Ensures full width */
       height: 20vh; /* Keeps images slightly rectangular */
       object-fit: cover; /* Keeps image proportionate */
-      border-top-left-radius: 1vw; 
+      border-top-left-radius: 1vw;
       border-top-right-radius: 1vw;
   }
 
@@ -223,7 +255,7 @@
   }
 }
 
-  
+
   /* Mobile Devices (Phones, below 768px) */
   @media (max-width: 767px) {
     /* Center title and text */
@@ -244,7 +276,7 @@
       font-size: 2.4vw;
       color: var(--text-color)
     }
-  
+
     /* Ensure full-width background on mobile */
     .tips-section {
       background-color: #E3F0AF !important; /* Ensure color applies */
@@ -259,10 +291,13 @@
       overflow: hidden; /* Prevents unwanted spacing */
     }
 
+<<<<<<< HEAD
     .tips-second-title{
       font-size: 4vw;
     }
   
+=======
+>>>>>>> aa18406da28dedb002a143dd2149ac3d0fd0aba5
     .tips-cards-container {
       grid-template-columns: 1fr; /* 1 column */
     }
@@ -274,34 +309,34 @@
       min-height: 35vh; /* Increase height */
       padding: 2vh; /* Adds more spacing inside */
     }
-  
+
     .card img {
       height: 30vh; /* Adjust this to make images appear longer */
       object-fit: cover;
     }
-  
+
     .card-title {
       font-size: 4vw;
       text-align: center;
     }
-  
+
     .card-text {
       font-size: 2.5vw;
       text-align: center;
     }
-  
+
     /* Remove bullet points inside cards */
     .card ul {
       list-style: none;
       padding-left: 0;
     }
-  
+
     .card ul li {
       display: flex;
       align-items: center;
       text-align: left;
     }
-  
+
     /* Footer adjustments */
     .tips-footer .row {
       text-align: center;
@@ -309,25 +344,24 @@
       flex-direction: column;
       align-items: center;
     }
-  
+
     .tips-footer-title {
       font-size: 4vw;
       text-align: center;
       margin: 0 auto;
     }
-    
+
     .tips-footer-title span {
         color: var(--primary-color);
     }
-  
+
     .tips-footer-text {
       font-size: 2.5vw;
       text-align: center;
       margin: 0 auto;
     }
-  
+
     .tips-link-text {
       text-align: center;
     }
   }
-  
